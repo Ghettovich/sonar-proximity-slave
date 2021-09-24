@@ -1,0 +1,1 @@
+# sonar-proximity-slave
