@@ -2,6 +2,7 @@
 #include <mcp_can.h>
 
 const int SPI_CS_PIN = 53;
+const int CAN_INT_PIN = 20;
 const int id = 0x01;
 unsigned char messageId = 1;
 unsigned short value = 255;
@@ -27,7 +28,7 @@ void canLoop() {
   Serial.println("in loop");
   
   value++;
-  prepareBuffer(messageId, value, canBuffer);
+  prepareBuffer(messageId, getUSDistance(), canBuffer);
 
   // check if size does not exceed the reserved length
   if (sizeof(canBuffer->data) <= MAX_CHAR_IN_MESSAGE) {
